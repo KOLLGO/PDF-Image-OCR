@@ -1,6 +1,7 @@
 # PDF Image OCR
 A Python Program extracting Images from a pdf-file and extracting the text using Optical Character Recognition
 # Requirements
+- The Project was made for Windows. If your OS is another like macOS or Linux, you need to adjust some paths because of `\\`.
 - Python Version 3.11
 ```bash 
 pip install -r requirements.txt
