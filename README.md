@@ -21,4 +21,3 @@ This is where the Paths are saved, change these according to your System
   - delete the `+ folder` in the line saying `input_folder = output_path + folder`
 - If you only want to extract the images and do nott want to use OCR
   - comment out the line saying `ocr(input_folder, out_txt, lang)` (to: `#ocr(input_folder, out_txt, lang)`)
-- Simple GUI will be coded some day
