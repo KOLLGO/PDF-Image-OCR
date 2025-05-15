@@ -9,9 +9,9 @@ pip install -r requirements.txt
 - Install [Tesseract](https://github.com/tesseract-ocr/tesseract) and copy the path
 - Install [Ollama](https://ollama.com)
 - in console (example model: `llama3.2`):
-  ```bash
-  ollama pull <YourModel>
-  ```
+```bash
+ollama pull <YourModel>
+```
 
 # Var.py
 This is where the Paths are saved, change these according to your System
