@@ -6,3 +6,5 @@ input_path = ""
 output_path = ".\\out\\"
 # Language ("eng" for english)
 lang = "deu+eng"
+# Ollama Model (example: llama3.2)
+model = "cas/discolm-mfto-german"
