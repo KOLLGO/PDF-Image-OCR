@@ -1,8 +1,14 @@
+import sys
+
+from var import input_path, output_path, lang, tesseract_path, model
+
 import os
 from pdf2image import convert_from_path
-from var import input_path, output_path, lang, tesseract_path
+
 import pytesseract
 from PIL import Image
+
+from ollama import chat
 
 
 def image_extraction():
@@ -39,6 +45,20 @@ def ocr(input_folder, output_file, language):
     except Exception as e:
         print(e)
 
+def feedllm(data):
+    prompt = input("Prompt: ")
+    if(prompt.lower() == "stop"):
+        sys.exit()
+    stream = chat(
+        model=model,
+        messages=[{'role': 'user', 'content': prompt + "Use the following Data: " + data}],
+        stream=True,
+    )
+
+    for chunk in stream:
+        print(chunk['message']['content'], end='', flush=True)
+
+    feedllm(data)
 
 if __name__ == "__main__":
     # Image Output Folder
@@ -55,3 +75,10 @@ if __name__ == "__main__":
     input_folder = output_path + folder
 
     ocr(input_folder, out_txt, lang)
+
+    doc = open(out_txt)
+    data = doc.read()
+    doc.close()
+    print("The Document's Data is loaded.")
+
+    feedllm(data)
